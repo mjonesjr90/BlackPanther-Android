@@ -1,12 +1,15 @@
 package com.malcomjones.blackpanther;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.millennialmedia.AppInfo;
 import com.millennialmedia.MMException;
+import com.millennialmedia.MMSDK;
 import com.millennialmedia.NativeAd;
 import com.millennialmedia.NativeAd.ComponentName;
 import com.millennialmedia.NativeAd.NativeErrorStatus;
@@ -15,7 +18,7 @@ import com.millennialmedia.NativeAd.NativeListener;
 public class NativeActivity extends AppCompatActivity {
 
     private static final String TAG = NativeActivity.class.getSimpleName();
-    private static final String PLACEMENT_ID = "native";
+    private static String PLACEMENT_ID = "native";
     private NativeAd nativeAd;
     private LinearLayout adContainer;
 
@@ -23,6 +26,21 @@ public class NativeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_native);
+
+        Intent i = getIntent();
+        if(i.hasExtra("customSite")){
+            try {
+                //Set Site ID
+                AppInfo appInfo = new AppInfo();
+                appInfo.setSiteId(i.getExtras().getString("customSite"));
+                MMSDK.setAppInfo(appInfo);
+            } catch (MMException e){
+                Log.e(TAG, "SDK didn't initialize", e);
+            }
+        }
+        if(i.hasExtra("customPlacement")){
+            PLACEMENT_ID = i.getExtras().getString("customPlacement");
+        }
 
         try{
             nativeAd = NativeAd.createInstance(PLACEMENT_ID, NativeAd.NATIVE_TYPE_INLINE);

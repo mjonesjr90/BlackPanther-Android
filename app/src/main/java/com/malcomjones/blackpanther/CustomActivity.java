@@ -260,7 +260,7 @@ public class CustomActivity extends AppCompatActivity {
                 if (checked)
                     AD_TYPE_FLAG = 3;
                     if(SSP_FLAG == 1){
-                        _cSuperAuction.setVisibility(View.GONE);
+                        _cSuperAuction.setVisibility(View.VISIBLE);
                     }
                 break;
             case R.id.radio_native:
@@ -364,10 +364,22 @@ public class CustomActivity extends AppCompatActivity {
                     startActivity(mrecIntent);
                 }
                 if(AD_TYPE_FLAG == 3){
-                    Intent interstitialIntent = new Intent(this, InterstitialActivity.class);
+                    Intent interstitialIntent;
+                    if(SA_FLAG) {
+                        interstitialIntent = new Intent(this, SuperAuctionInterstitialActivity.class);
+                    }
+                    else {
+                        interstitialIntent = new Intent(this, InterstitialActivity.class);
+                    }
                     interstitialIntent.putExtra("customSite", siteID);
                     interstitialIntent.putExtra("customPlacement", placementID);
                     startActivity(interstitialIntent);
+                }
+                if(AD_TYPE_FLAG == 4){
+                    Intent nativeIntent = new Intent(this, NativeActivity.class);
+                    nativeIntent.putExtra("customSite", siteID);
+                    nativeIntent.putExtra("customPlacement", placementID);
+                    startActivity(nativeIntent);
                 }
             }
         }

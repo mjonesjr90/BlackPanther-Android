@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 //                    case 6: startActivity(new Intent(MainActivity.this, AdMobBannerActivity.class)); break;
                     case 7: startActivity(new Intent(MainActivity.this, SuperAuctionBannerActivity.class)); break;
                     case 8: startActivity(new Intent(MainActivity.this, SuperAuctionMRECActivity.class)); break;
-//                    case 9: startActivity(new Intent(MainActivity.this, SuperAuctionInterstitialActivity.class)); break;
+                    case 9: startActivity(new Intent(MainActivity.this, SuperAuctionInterstitialActivity.class)); break;
 //                    case 10: startActivity(new Intent(MainActivity.this, SuperAuctionBannerMoPubActivity.class)); break;
 //                    case 11: startActivity(new Intent(MainActivity.this, SuperAuctionMRECMoPubActivity.class)); break;
 //                    case 12: startActivity(new Intent(MainActivity.this, SuperAuctionBannerDFPActivity.class)); break;

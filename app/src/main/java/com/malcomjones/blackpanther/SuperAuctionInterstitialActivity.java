@@ -1,23 +1,26 @@
 package com.malcomjones.blackpanther;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.millennialmedia.AppInfo;
 import com.millennialmedia.BidRequestErrorStatus;
 import com.millennialmedia.BidRequestListener;
 import com.millennialmedia.InterstitialAd;
 import com.millennialmedia.MMException;
+import com.millennialmedia.MMSDK;
 
 /**
  * This activity makes a conventional interstitial request to the ONE Mobile platform
  */
 public class SuperAuctionInterstitialActivity extends AppCompatActivity {
 
-    public static final String PLACEMENT_ID = "intersitital_sa";
+    public static String PLACEMENT_ID = "intersitital_sa";
     public static final String TAG = SuperAuctionInterstitialActivity.class.getSimpleName();
     private View loadButton;
     private View showButton;
@@ -31,6 +34,21 @@ public class SuperAuctionInterstitialActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interstitial_super_auction);
+
+        Intent i = getIntent();
+        if(i.hasExtra("customSite")){
+            try {
+                //Set Site ID
+                AppInfo appInfo = new AppInfo();
+                appInfo.setSiteId(i.getExtras().getString("customSite"));
+                MMSDK.setAppInfo(appInfo);
+            } catch (MMException e){
+                Log.e(TAG, "SDK didn't initialize", e);
+            }
+        }
+        if(i.hasExtra("customPlacement")){
+            PLACEMENT_ID = i.getExtras().getString("customPlacement");
+        }
 
 //        FlurryAgent.logEvent("Requested a Super Auction Interstitial");
 
@@ -59,9 +77,15 @@ public class SuperAuctionInterstitialActivity extends AppCompatActivity {
                     // error handling here - make a regular MoPub request
                     Log.v(TAG, "Failed bid");
 
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadButton.setEnabled(true);
+                        }
+                    });
                     //Request another bid, or call and serve a bid from your SSP
                     Log.v(TAG, "Requesting a new bid price");
-                    requestBidPrice();
+//                    requestBidPrice();
                 }
             });
         } catch(MMException e) {
