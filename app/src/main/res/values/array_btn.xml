@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="array_btns">
+        <item>Banner</item>
+        <item>Medium Rectangle</item>
+        <item>Interstitial</item>
+        <item>Native</item>
+        <item>MoPub Banner</item>
+        <item>DFP Banner</item>
+        <item>AdMob Banner</item>
+        <item>Super Auction Banner</item>
+        <item>Super Auction MREC</item>
+        <item>Super Auction Interstitial</item>
+        <item>Super Auction Banner - MoPub</item>
+        <item>Super Auction MREC - MoPub</item>
+        <item>Super Auction Banner - DFP</item>
+        <item>Flurry Native</item>
+        <item>Custom</item>
+    </string-array>
+</resources>

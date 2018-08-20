@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Black Panther</string>
+    <string name="gdpr_requirement">Is this an EU request?</string>
+    <string name="gdpr_confirmation">Do you give consent for personalized ads?</string>
+    <string name="eu_true">EU Request</string>
+    <string name="eu_false">Non-EU Request</string>
+    <string name="gdpr_consent">GDPR Consent</string>
+    <string name="gdpr_consent_mopub">MoPub GDPR Consent</string>
+    <string name="consent_true">I want cool ads</string>
+    <string name="consent_false">I want dumb ads</string>
+    <string name="edit_site">Enter SiteID</string>
+    <string name="edit_placement">Enter PlacementID</string>
+    <string name="edit_adunit">Enter Ad Unit ID</string>
+    <string name="edit_admobid">Enter AdMob ID</string>
+    <string name="banner">Banner</string>
+    <string name="mrec">MREC</string>
+    <string name="interstitial">Interstitial</string>
+    <string name="native_ad">Native</string>
+    <string name="one_mobile">ONE Mobile</string>
+    <string name="mopub">MoPub</string>
+    <string name="dfp">DFP</string>
+    <string name="flurry">Flurry</string>
+    <string name="admob">AdMob</string>
+    <string name="title_activity_entry">EntryActivity</string>
+</resources>

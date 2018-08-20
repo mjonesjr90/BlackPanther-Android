@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.malcomjones.blackpanther.CustomActivity">
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/sspRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+        <RadioButton android:id="@+id/radio_one-mobile"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:text="@string/one_mobile"
+                     android:textSize="12sp"
+                     android:onClick="sspRadioClicked"/>
+        <RadioButton android:id="@+id/radio_mopub"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:text="@string/mopub"
+                     android:textSize="12sp"
+                     android:onClick="sspRadioClicked"/>
+        <RadioButton android:id="@+id/radio_dfp"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:text="@string/dfp"
+                     android:textSize="12sp"
+                     android:onClick="sspRadioClicked"/>
+        <RadioButton android:id="@+id/radio_admob"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:text="@string/admob"
+                     android:textSize="12sp"
+                     android:onClick="sspRadioClicked"/>
+        <RadioButton android:id="@+id/radio_flurry"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:text="@string/flurry"
+                     android:textSize="12sp"
+                     android:onClick="sspRadioClicked"/>
+    </RadioGroup>
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/adRadioGroup"
+                android:layout_below="@id/sspRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+        <RadioButton android:id="@+id/radio_banner"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:text="@string/banner"
+                     android:visibility="gone"
+                     android:onClick="adRadioClicked"/>
+        <RadioButton android:id="@+id/radio_mrec"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:text="@string/mrec"
+                     android:visibility="gone"
+                     android:onClick="adRadioClicked"/>
+        <RadioButton android:id="@+id/radio_interstitial"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:text="@string/interstitial"
+                     android:visibility="gone"
+                     android:onClick="adRadioClicked"/>
+        <RadioButton android:id="@+id/radio_native"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="16dp"
+                     android:text="@string/native_ad"
+                     android:visibility="gone"
+                     android:onClick="adRadioClicked"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_below="@id/adRadioGroup"
+        android:visibility="gone"
+        android:ems="10"
+        android:hint="@string/edit_site"
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/editPlacement"
+        android:layout_below="@+id/editSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:ems="10"
+        android:hint="@string/edit_placement"
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/editAdUnit"
+        android:layout_below="@+id/editPlacement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:ems="10"
+        android:hint="@string/edit_adunit"
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/editAdMobID"
+        android:layout_below="@+id/editAdUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:ems="10"
+        android:hint="@string/edit_admobid"
+        android:inputType="text" />
+
+    <CheckBox
+        android:id="@+id/sa_toggle"
+        android:layout_below="@id/editAdMobID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:text="Super Auction"
+        android:onClick="setSuperAuction"/>
+
+    <Button
+        android:id="@+id/requestButton"
+        android:layout_below="@id/sa_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        android:text="Request Ad"
+        android:onClick="requestAd"/>
+
+</RelativeLayout>
